@@ -11,7 +11,9 @@ function App() {
       <div>
         <Routes>
           <Route path="/about" element={<About />} />
-          <Route path="/dashboard" element={<Protected component={DashBoard} />} />
+          <Route path="/dashboard" element={<Protected component={DashBoard} />} >
+            <Route path=":page" element={<Protected component={DashBoard} />} />
+          </Route>
           <Route path="/" element={<Home />} />
         </Routes>
       </div>

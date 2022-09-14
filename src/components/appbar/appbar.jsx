@@ -2,7 +2,6 @@ import React from 'react';
 import MuiAppBar from '@mui/material/AppBar';
 import { styled, alpha } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import InputBase from '@mui/material/InputBase';
@@ -13,6 +12,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import Logo from '../logo/logo';
 
 const menuId = 'primary-search-account-menu';
 
@@ -109,14 +109,7 @@ export default function MiniAppBar({ open, onMenuClick }) {
                 >
                     <MenuIcon />
                 </IconButton>
-                <Typography
-                    variant="h6"
-                    noWrap
-                    component="div"
-                    sx={{ display: { xs: 'none', sm: 'block' } }}
-                >
-                    KONEK
-                </Typography>
+                <Logo />
                 <Search>
                     <SearchIconWrapper>
                         <SearchIcon />

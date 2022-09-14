@@ -1,18 +1,19 @@
-import * as React from 'react';
+import React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import ClassIcon from '@mui/icons-material/Class';
-import MailIcon from '@mui/icons-material/Mail';
+import PersonIcon from '@mui/icons-material/Person';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import List from '@mui/material/List';
+import DrawerListItem from './list-item';
+import { useNavigate, useLocation } from "react-router-dom";
+import HomeIcon from '@mui/icons-material/Home';
+import { OtherHouses } from '@mui/icons-material';
+
 
 const drawerWidth = 240;
 
@@ -71,9 +72,19 @@ export default function MiniDrawer({ open, onDrawerClose }) {
     onDrawerClose?.();
   };
 
+  const items = [
+    { text: "Home", icon: HomeIcon, path: "" },
+    { text: "Classroom", icon: ClassIcon, path: "classroom" },
+    { text: "User", icon: PersonIcon, path: "user" },
+    { text: "Logs", icon: ReceiptLongIcon, path: "logs" }
+  ];
+
+  const navigate = useNavigate()
+  const location = useLocation();
+  console.log(location.pathname);
   return (
     <>
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open} >
         <DrawerHeader>
           MENU
           <IconButton onClick={handleDrawerClose}>
@@ -82,58 +93,18 @@ export default function MiniDrawer({ open, onDrawerClose }) {
         </DrawerHeader>
         <Divider />
         <List>
-          {/* DITO KA MAG EDIT */}
-          {/* DITO KA MAG EDIT */}
-          {/* DITO KA MAG EDIT */}
-          {/* DITO KA MAG EDIT */}
-          <ListItem disablePadding sx={{ display: 'block' }}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
-                }}
-              >
-                <ClassIcon />
-              </ListItemIcon>
-              <ListItemText primary={'Classroom'} sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
-          </ListItem>
-          {/* GANG DITO*/}
-
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
+          {items.map((item) => (
+            <DrawerListItem
+              key={item.text}
+              open={open}
+              text={item.text}
+              icon={item.icon}
+              onClick={() => navigate(item.path)}
+              selected={location.pathname.replace("/dashboard", "").replace("/", "") === item.path}
+            />
           ))}
         </List>
+        <Divider />
       </Drawer>
     </>
   );

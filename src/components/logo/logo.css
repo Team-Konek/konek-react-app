@@ -1,0 +1,18 @@
+.logo {
+    color: #ccc;
+    font-size: 30px;
+}
+.logo > *{
+    vertical-align: middle;
+}
+
+.logo > img {
+    height: 50px;
+    margin-right: 5px;
+}
+.logo.sm {
+    font-size: 20px;
+}
+.logo.sm > img {
+    height: 30px;
+}

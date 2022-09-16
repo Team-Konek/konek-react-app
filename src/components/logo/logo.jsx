@@ -1,17 +1,11 @@
-import React from 'react';
-import Typography from '@mui/material/Typography';
-
+import React from "react";
+import "./logo.css";
 
 export default function Logo() {
   return (
-    <Typography
-      variant="h6"
-      noWrap
-      component="div"
-      sx={{ display: { xs: 'none', sm: 'block' } }}
-    >
-      KONEK
-    </Typography>
+    <div className="logo">
+      <img src={process.env.PUBLIC_URL + "/images/logo.png"} />
+      <span>KONEK</span>
+    </div>
   );
 }
-

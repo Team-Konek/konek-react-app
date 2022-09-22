@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
+import Lobby from './/pages/home/lobby';
 import About from './pages/about';
 import DashBoard from './pages/dashboard';
 import Protected from './components/routes/protected';
@@ -17,7 +18,9 @@ function App() {
           <Route path="/" element={<Home />} />
         </Routes>
       </div>
+      <Lobby />
     </Router>
+    
   );
 }
 export default App;

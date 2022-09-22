@@ -1,14 +1,20 @@
+@font-face {
+    font-family: myFont;
+    src: url(MKOCR.ttf);
+  }
 .logo {
-    color: #ccc;
-    font-size: 30px;
+    margin-top: 30px;
+    color: #29712a;
+    font-size: 40px;
 }
 .logo > *{
+    font-family: myFont;
     vertical-align: middle;
+    font-weight: bold;
 }
-
 .logo > img {
-    height: 50px;
-    margin-right: 5px;
+    height: 70px;
+    margin-right: 10px;
 }
 .logo.sm {
     font-size: 20px;

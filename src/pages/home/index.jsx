@@ -9,19 +9,15 @@ function Home() {
   return (
     <div className="home">
       <Container maxWidth="xl"></Container>
-      {window['slidingText']}
-      <html><script> src='script.js'</script></html>
       <header>
-        <nav>
           <a href="#">
             <Logo />
           </a>
-          <div className="nav-links">
+          <div className="header-btn">
             <ul>
                 <Link className="login-btn" to="/lobby">SignUp/Login</Link>
             </ul>
           </div>
-        </nav>
       </header>
 
       <div className="text-box">

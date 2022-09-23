@@ -1,14 +1,16 @@
 import React from "react";
 import { Container } from "@mui/material";
 import Logo from "../../components/logo/logo";
-import "./index.css";
+import "./lobby.css";
 
 
 function Lobby() {
     return (
         <div className="lobby">
             <Container maxWidth="xl"></Container>
-            <Logo />
+            <header>
+                <a href=""><Logo /></a>
+            </header>
             <h1>
                 <span>K</span>
                 <span>O</span>

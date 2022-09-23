@@ -7,6 +7,7 @@ import Protected from './components/routes/protected';
 import NotFound from './pages/not-found';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theming';
+import Login from './components/login/login';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path=":page" element={<Protected component={DashBoard} />} />
           </Route>
           <Route path="/" element={<Home />} exact />
+          <Route path="login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </ThemeProvider>

@@ -1,7 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
-import Lobby from './/pages/home/lobby';
 import About from './pages/about';
 import DashBoard from './pages/dashboard';
 import Protected from './components/routes/protected';
@@ -24,12 +23,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-<<<<<<< HEAD
-      </div>
-      <Lobby />
-=======
       </ThemeProvider>
->>>>>>> 01a70fb34e58a344c15311cf5efe0314020a9681
     </Router>
     
   );

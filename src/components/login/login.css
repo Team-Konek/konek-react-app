@@ -26,7 +26,7 @@ h1 {
     text-align: center;
 
 }
-
+/*
 span:nth-child(1) {
     color: #4caf50;
     position: relative;
@@ -66,22 +66,18 @@ span:nth-child(5) {
     animation-fill-mode: backwards;
 }
 
-
 @keyframes animate {
     0% {
         bottom: -250px;
         color: #e25e3b;
     }
-
     20% {
         color: #4caf50;
     }
-
     25% {
 
         color: #FFF;
     }
-
     40% {
         color: #49145e;
     }
@@ -96,7 +92,7 @@ span:nth-child(5) {
     }
 
 }
-
+*/
 #form-container {
     width: 90%;
     max-width: 600px;

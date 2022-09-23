@@ -12,6 +12,7 @@ import List from '@mui/material/List';
 import DrawerListItem from './list-item';
 import { useNavigate, useLocation } from "react-router-dom";
 import HomeIcon from '@mui/icons-material/Home';
+import { ThemeProvider } from '@mui/material/styles';
 import { OtherHouses } from '@mui/icons-material';
 
 
@@ -91,20 +92,22 @@ export default function MiniDrawer({ open, onDrawerClose }) {
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
+
         <Divider />
         <List>
-          {items.map((item) => (
-            <DrawerListItem
-              key={item.text}
-              open={open}
-              text={item.text}
-              icon={item.icon}
-              onClick={() => navigate(item.path)}
-              selected={location.pathname.replace("/dashboard", "").replace("/", "") === item.path}
-            />
-          ))}
+            {items.map((item) => (
+              <DrawerListItem
+                key={item.text}
+                open={open}
+                text={item.text}
+                icon={item.icon}
+                onClick={() => navigate(item.path)}
+                selected={location.pathname.replace("/dashboard", "").replace("/", "") === item.path}
+              />
+            ))}
         </List>
         <Divider />
+
       </Drawer>
     </>
   );

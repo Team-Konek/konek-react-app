@@ -1,12 +1,13 @@
+import classNames from "classnames";
 import React from "react";
 import "./logo.css";
 
-export default function Logo() {
+export default function Logo({ lg, className }) {
+ 
   return (
-    <div className="logo">
-      <img src={process.env.PUBLIC_URL + "images/logo.png"} />
+    <div className={classNames({className, logo: true, lg })}>
+      <img src={"/images/logo.png"} />
       <span>KONEK</span>
     </div>
-    
   );
 }

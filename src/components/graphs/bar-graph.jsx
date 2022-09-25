@@ -51,7 +51,7 @@ export default class BarGraph extends PureComponent {
 
   render() {
     return (
-      <ResponsiveContainer width="30%" height={300}>
+      <ResponsiveContainer width="100%" height={250}>
         <BarChart
           width={500}
           height={300}

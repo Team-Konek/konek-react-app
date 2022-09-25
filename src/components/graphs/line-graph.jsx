@@ -62,7 +62,7 @@ export default class LineGraph extends PureComponent {
 
   render() {
     return (
-      <ResponsiveContainer width="30%" height={300}>
+      <ResponsiveContainer width="100%" height={250}>
         <ComposedChart
           width={500}
           height={400}

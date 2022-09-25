@@ -13,19 +13,24 @@
     background-repeat: no-repeat;
 }
 
-header {
+.lobby .logo {
+    margin-top: 30px;
+  }
+  
+
+.lobby .header {
     display: flex;
     padding: 1% 6%;
     justify-content: space-between;
     align-items: center;
 }
 
-h1 {
+/* h1 {
     padding-top: 65px;
     font-size: 80px;
     text-align: center;
 
-}
+} */
 /*
 span:nth-child(1) {
     color: #4caf50;
@@ -121,7 +126,7 @@ span:nth-child(5) {
 
 }
 
-input {
+.lobby input {
     box-sizing: border-box;
     color: #fff;
     width: 100%;
@@ -138,15 +143,15 @@ input {
 
 }
 
-input[type="submit"]:hover {
+.lobby input[type="submit"]:hover {
     box-shadow: inset 510px 0 0 0 rgb(13, 96, 13);
     cursor: pointer;
 }
 
-input[type="submit"] {
+.lobby input[type="submit"] {
     background-color: #975d07;
 }
 
-input[type="text"] {
+.lobby input[type="text"] {
     text-align: center;
 }

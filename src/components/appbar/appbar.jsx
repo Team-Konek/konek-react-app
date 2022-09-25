@@ -13,6 +13,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Logo from '../logo/logo';
+import CloseIcon from '@mui/icons-material/Close';
 
 const menuId = 'primary-search-account-menu';
 
@@ -81,7 +82,7 @@ export default function MiniAppBar({ open, onMenuClick }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     const handleMenuClick = () => {
-        onMenuClick?.();
+        onMenuClick?.(!open);
     };
 
     const handleProfileMenuOpen = (event) => {
@@ -104,12 +105,15 @@ export default function MiniAppBar({ open, onMenuClick }) {
                     edge="start"
                     sx={{
                         marginRight: 5,
-                        ...(open && { display: 'none' }),
                     }}
                 >
-                    <MenuIcon />
+                    {open ? <CloseIcon /> : <MenuIcon />}
+
                 </IconButton>
+
                 <Logo />
+
+
                 <Search>
                     <SearchIconWrapper>
                         <SearchIcon />

@@ -3,9 +3,8 @@
     src: url(MKOCR.ttf);
   }
 .logo {
-    margin-top: 30px;
     color: #29712a;
-    font-size: 40px;
+    font-size: 30px;
 }
 .logo > *{
     font-family: myFont;
@@ -13,12 +12,12 @@
     font-weight: bold;
 }
 .logo > img {
-    height: 70px;
+    height: 50px;
     margin-right: 10px;
 }
-.logo.sm {
-    font-size: 20px;
+.logo.lg {
+    font-size: 40px;
 }
-.logo.sm > img {
-    height: 30px;
+.logo.lg > img {
+    height: 70px;
 }

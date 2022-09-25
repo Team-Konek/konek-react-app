@@ -1,49 +1,20 @@
-import { Box, Container, Grid, Paper, TextField, Typography } from '@mui/material';
 import React from 'react';
-import BarGraph from '../../../components/graphs/bar-graph';
-import CustomizedTables from '../../../components/graphs/custom';
-import LineGraph from '../../../components/graphs/line-graph';
-import PieGraph from '../../../components/graphs/pie-graph';
-import UsersList from '../../../components/graphs/user-list';
-import Widget from '../../../components/widget/widget';
+import AdminDashboard from './admin';
 import "./index.css";
+import InstructorDashboard from './instructor';
+import StudentDashboard from './student';
 
 export default function Home() {
-  const [loading, setLoading] = React.useState(true);
-  React.useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
+  const role = "student";
 
-  return (
+  if (role === "admin") {
+    return <AdminDashboard />;
 
-    <Grid container spacing={2}>
-      <Grid item xs={12} md={8}>
-        <Widget title="Users" loading={loading}>
-          <LineGraph />
-        </Widget>
-      </Grid>
+  } else if (role === "student") {
+    return <StudentDashboard />;
 
-      <Grid item xs={12} md={4}>
-        <Widget title="Website Traffic" loading={loading}>
-          <BarGraph />
-        </Widget>
-      </Grid>
-
-
-      <Grid item xs={12} md={6}>
-        <Widget loading={loading}>
-          <UsersList />
-        </Widget>
-      </Grid>
-
-      <Grid item xs={12} md={6}>
-        <Widget loading={loading}>
-          <CustomizedTables />
-        </Widget>
-      </Grid>
-
-    </Grid>
-  );
+  } else if (role === "instructor") {
+    return <InstructorDashboard />;
+  } else
+    throw new Error("Invalid Role");
 }

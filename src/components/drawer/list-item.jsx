@@ -3,17 +3,29 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import { useTheme } from '@mui/material/styles';
 
-export default function DrawerListItem({ open, text, icon: Icon, onClick, selected }) {
+export default function DrawerListItem({ open, text, icon: Icon, onClick, selected, hideBorderTop, hideBorderBottom }) {
+  const theme = useTheme();
+  const [hover, setHover] = React.useState(false);
+
   return (
+
     <ListItem disablePadding sx={{ display: 'block' }}>
       <ListItemButton
-        selected={selected}
         onClick={() => onClick?.(text)}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
         sx={{
           minHeight: 48,
           justifyContent: open ? 'initial' : 'center',
           px: 2.5,
+          backgroundColor: selected || hover ? "#eee" : "inherit",
+          color: selected || hover ? theme.palette.primary.main : "#eee",
+          '&:hover': {
+            color: theme.palette.primary.main,
+            backgroundColor: "#eee"
+          },
         }}
       >
         {Icon && (
@@ -24,11 +36,17 @@ export default function DrawerListItem({ open, text, icon: Icon, onClick, select
               justifyContent: 'center',
             }}
           >
-            <Icon />
+
+            <Icon color={selected || hover ? "primary" : "gray"} />
           </ListItemIcon>
         )}
         <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
       </ListItemButton>
+
+      {(selected || hover ) && [
+        !hideBorderTop&& <div className="trapezoid" ></div>,
+        !hideBorderBottom&&<div className="trapezoid bottom" ></div>
+      ]}
     </ListItem>
   );
 }

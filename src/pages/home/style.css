@@ -1,0 +1,80 @@
+body {
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7) 90%, #532267), url("bg.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.home{
+  padding: 30px 1px;
+}
+
+.home .subtitle {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+.home .center-box {
+  width: 50vw;
+  text-align: center;
+  margin: auto;
+  margin-top: 22vh;
+  color: #fff;
+}
+
+.home .title {
+  margin-top: -30px;
+  font-weight: 600;
+  font-size: 4rem;
+}
+
+.home .btn {
+  padding: 10px 40px;
+  border-radius: 50px;
+  font-weight: bold;
+  color: #fff;
+  border-color: #fff;
+}
+
+.home .btn:hover {
+  color: #fff;
+  background-color: #29712a;
+  border-color: #fff;
+  opacity: 0.8;
+}
+
+
+@keyframes colorChange {
+  0% {
+    color: #4caf50;
+  }
+
+  25% {
+    color: darkviolet;
+  }
+
+  50% {
+    color: green;
+  }
+
+  75% {
+    color: yellowgreen;
+  }
+
+  100% {
+    color: #4caf50;
+  }
+}
+
+.home .color-swap {
+  animation-name: colorChange;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  font-size: 5rem;
+  font-weight: 750;
+}

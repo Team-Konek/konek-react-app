@@ -10,10 +10,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import Badge from '@mui/material/Badge';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Logo from '../logo/logo';
 import CloseIcon from '@mui/icons-material/Close';
+import Profile from '../profile/profile';
 
 const menuId = 'primary-search-account-menu';
 
@@ -124,7 +124,7 @@ export default function MiniAppBar({ open, onMenuClick }) {
                     />
                 </Search>
                 <Box sx={{ flexGrow: 1 }} />
-                <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                <Box sx={{ display: { xs: 'none', md: 'flex', padding: 0 } }}>
                     <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                         <Badge badgeContent={4} color="error">
                             <MailIcon />
@@ -135,7 +135,7 @@ export default function MiniAppBar({ open, onMenuClick }) {
                         aria-label="show 17 new notifications"
                         color="inherit"
                     >
-                        <Badge badgeContent={123} color="error">
+                        <Badge badgeContent={6} color="error">
                             <NotificationsIcon />
                         </Badge>
                     </IconButton>
@@ -147,8 +147,11 @@ export default function MiniAppBar({ open, onMenuClick }) {
                         aria-haspopup="true"
                         onClick={handleProfileMenuOpen}
                         color="inherit"
+                        className="avatar"
                     >
-                        <AccountCircle />
+
+                        <Profile />
+
                     </IconButton>
                 </Box>
 

@@ -1,10 +1,7 @@
 import React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ClassIcon from '@mui/icons-material/Class';
 import PersonIcon from '@mui/icons-material/Person';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
@@ -13,9 +10,6 @@ import DrawerListItem from './list-item';
 import { useNavigate, useLocation } from "react-router-dom";
 import HomeIcon from '@mui/icons-material/Home';
 import "./drawer.css";
-import { ThemeProvider } from '@mui/material/styles';
-import { OtherHouses } from '@mui/icons-material';
-
 
 const drawerWidth = 240;
 
@@ -67,23 +61,39 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function MiniDrawer({ open, onDrawerClose }) {
-  const theme = useTheme();
 
-  const handleDrawerClose = () => {
-    onDrawerClose?.();
+export default function MiniDrawer({ open }) {
+
+  const role = "student";
+
+  const getMenuItems = (role) => {
+    if (role === "admin") {
+      return [
+        { text: "Home", icon: HomeIcon, path: "" },
+        { text: "Classroom", icon: ClassIcon, path: "classroom" },
+        { text: "User", icon: PersonIcon, path: "user" },
+        { text: "Logs", icon: ReceiptLongIcon, path: "logs" }
+      ];
+
+    } else if (role === "student") {
+      return [
+        { text: "Home", icon: HomeIcon, path: "" },
+        { text: "Classroom", icon: ClassIcon, path: "classroom" },
+      ];
+    } else if (role === "instructor") {
+      return [
+        { text: "Home", icon: HomeIcon, path: "" },
+        { text: "Classroom", icon: ClassIcon, path: "classroom" },
+      ];
+    } else
+      throw new Error("Invalid Role");
   };
 
-  const items = [
-    { text: "Home", icon: HomeIcon, path: "" },
-    { text: "Classroom", icon: ClassIcon, path: "classroom" },
-    { text: "User", icon: PersonIcon, path: "user" },
-    { text: "Logs", icon: ReceiptLongIcon, path: "logs" }
-  ];
+  const items = getMenuItems(role);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   const location = useLocation();
-  console.log(location.pathname);
   return (
     <>
       <Drawer variant="permanent" open={open} classes={{ paper: "drawer-container" }} >

@@ -1,9 +1,7 @@
-import { Box, Container, Grid, Paper, TextField, Typography } from '@mui/material';
 import React from 'react';
+import { Grid } from '@mui/material';
 import BarGraph from '../../../components/graphs/bar-graph';
-import CustomizedTables from '../../../components/graphs/custom';
 import LineGraph from '../../../components/graphs/line-graph';
-import PieGraph from '../../../components/graphs/pie-graph';
 import UsersList from '../../../components/graphs/user-list';
 import Widget from '../../../components/widget/widget';
 
@@ -32,17 +30,17 @@ export default function AdminDashboard() {
       </Grid>
 
 
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={12}>
         <Widget loading={loading}>
           <UsersList />
         </Widget>
       </Grid>
 
-      <Grid item xs={12} md={6}>
+      {/* <Grid item xs={12} md={6}>
         <Widget loading={loading}>
           <CustomizedTables />
         </Widget>
-      </Grid>
+      </Grid> */}
 
     </Grid>
   );

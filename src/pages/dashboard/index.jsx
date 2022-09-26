@@ -64,13 +64,15 @@ export default function DashBoard() {
       <Drawer open={open} onDrawerClose={handleDrawerClose} />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/classroom" element={<Classroom />} />
-          <Route path="/user" element={<User />} />
-          <Route path="/Logs" element={<Logs />} />
-          <Route path="*" element={<Navigate to="/404" />} />
-        </Routes>
+        <div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/classroom" element={<Classroom />} />
+            <Route path="/user" element={<User />} />
+            <Route path="/Logs" element={<Logs />} />
+            <Route path="*" element={<Navigate to="/404" />} />
+          </Routes>
+        </div>
       </Box>
     </Box>
   );

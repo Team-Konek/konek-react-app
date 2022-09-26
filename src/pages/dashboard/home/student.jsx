@@ -1,10 +1,6 @@
-import { Box, Container, Grid, Paper, TextField, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import React from 'react';
-import BarGraph from '../../../components/graphs/bar-graph';
-import CustomizedTables from '../../../components/graphs/custom';
-import LineGraph from '../../../components/graphs/line-graph';
-import PieGraph from '../../../components/graphs/pie-graph';
-import UsersList from '../../../components/graphs/user-list';
+import ClassroomCard from '../../../components/cards/classroom-card';
 import Widget from '../../../components/widget/widget';
 
 export default function StudentDashboard() {
@@ -18,9 +14,22 @@ export default function StudentDashboard() {
   return (
 
     <Grid container spacing={2}>
-
-
-
+      <Grid item xs={12} md={12} sx={{flexBasis: '100%', flexShrink: 1 }}>
+        <Widget title="Live Porno" loading={loading}>
+          <div className="vertical-scroll">
+            <div className="card-list">
+              {Array(10).fill(null).map(() => (
+                <ClassroomCard
+                  image="https://drive.google.com/uc?export=view&id=1omB8yTn99Y3mIuwREHZHjbHUAqPF9CaB"
+                  title="Monkey"
+                  description="You will learn how to communicate with monkey"
+                  onJoin={() => {
+                  }}
+                />))}
+            </div>
+          </div>
+        </Widget>
+      </Grid>
     </Grid>
   );
 }

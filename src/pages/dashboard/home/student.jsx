@@ -14,8 +14,8 @@ export default function StudentDashboard() {
   return (
 
     <Grid container spacing={2}>
-      <Grid item xs={12} md={12} sx={{flexBasis: '100%', flexShrink: 1 }}>
-        <Widget title="Live Porno" loading={loading}>
+      <Grid item xs={12} md={12}>
+        <Widget title="Live Porno" loading={loading} padded>
           <div className="vertical-scroll">
             <div className="card-list">
               {Array(10).fill(null).map(() => (

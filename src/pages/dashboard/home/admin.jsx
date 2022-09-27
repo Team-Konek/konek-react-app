@@ -24,7 +24,7 @@ export default function AdminDashboard() {
       </Grid>
 
       <Grid item xs={12} md={4}>
-        <Widget title="Website Traffic" loading={loading}>
+        <Widget title="Website Traffic" loading={loading} >
           <BarGraph />
         </Widget>
       </Grid>

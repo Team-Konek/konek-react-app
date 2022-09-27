@@ -62,7 +62,7 @@ export default function DashBoard() {
       <CssBaseline />
       <AppBar open={open} onMenuClick={handleDrawerOpen} />
       <Drawer open={open} onDrawerClose={handleDrawerClose} />
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 3, width: "80%" }}>
         <DrawerHeader />
         <div>
           <Routes>

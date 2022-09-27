@@ -1,7 +1,6 @@
 .card-list {
-  padding: 30px 30px;
-  padding-top: 0;
   white-space: nowrap;
+  padding-bottom: 12px;
 }
 
 .card-list>* {
@@ -13,8 +12,31 @@
   margin-left: 20px;
 }
 
-.vertical-scroll{
+.vertical-scroll {
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
+}
+
+.vertical-scroll::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+/* Track */
+.vertical-scroll::-webkit-scrollbar-track {
+  background: #eee;
+  border-radius: 50px;
+}
+
+/* Handle */
+.vertical-scroll::-webkit-scrollbar-thumb {
+  background: #722d8e;
+  border-radius: 50px;
+
+}
+
+/* Handle on hover */
+.vertical-scroll::-webkit-scrollbar-thumb:hover {
+  background: #532267;
 }

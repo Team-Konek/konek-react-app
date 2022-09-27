@@ -13,9 +13,12 @@ export default function ClassroomCard({ image, title, description, onJoin }) {
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
-        height="200"
+        height="100"
         image={image}
         alt="green iguana"
+        sx={{
+         objectPosition: "center -135px"
+        }}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -26,7 +29,7 @@ export default function ClassroomCard({ image, title, description, onJoin }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={handleJoin}>Join</Button>
+        <Button size="small" onClick={handleJoin} sx={{ marginLeft: "auto"}}>Join</Button>
       </CardActions>
     </Card>
   );

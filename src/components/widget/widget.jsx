@@ -1,8 +1,10 @@
 import React from 'react';
 import { Paper, Typography } from '@mui/material';
 import Loader from '../loader/loader';
+import cx from "classnames";
+import "./widget.css";
 
-export default function Widget({ title, children, loading }) {
+export default function Widget({ title, children, loading, padded }) {
   return (
     <Paper elevation={1} sx={{ minHeight: 300, position: "relative", width: '100%' }}>
       {/* ONLY IF */}
@@ -12,7 +14,9 @@ export default function Widget({ title, children, loading }) {
         </Typography>
       )}
       {loading && <Loader />}
-      {children}
-    </Paper>
+      <div className={cx({ "widget-container": true, padded })}>
+        {children}
+      </div>
+    </Paper >
   );
 }

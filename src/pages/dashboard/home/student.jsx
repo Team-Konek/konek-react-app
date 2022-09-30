@@ -18,7 +18,7 @@ export default function StudentDashboard() {
         <Widget title="Live Porno" loading={loading} padded>
           <div className="vertical-scroll">
             <div className="card-list">
-              {Array(10).fill(null).map(() => (
+              {Array(1).fill(null).map(() => (
                 <ClassroomCard
                   image="https://drive.google.com/uc?export=view&id=1omB8yTn99Y3mIuwREHZHjbHUAqPF9CaB"
                   title="Monkey"

@@ -1,12 +1,8 @@
-import { Box, Container, Grid, Paper, TextField, Typography } from '@mui/material';
+import { Box, Divider, Grid, TextField } from '@mui/material';
 import React from 'react';
-import BarGraph from '../../../components/graphs/bar-graph';
+import ClassroomCard from '../../../components/cards/classroom-card';
 import CustomizedTables from '../../../components/graphs/custom';
-import LineGraph from '../../../components/graphs/line-graph';
-import PieGraph from '../../../components/graphs/pie-graph';
-import UsersList from '../../../components/graphs/user-list';
 import Widget from '../../../components/widget/widget';
-
 
 export default function InstructorDashboard() {
   const [loading, setLoading] = React.useState(true);
@@ -17,33 +13,18 @@ export default function InstructorDashboard() {
   }, []);
 
   return (
+    // <Divider orientation="vertical" flexItem />
 
     <Grid container spacing={2}>
-      <Grid item xs={12} md={8}>
-        <Widget title="Users" loading={loading}>
-          <LineGraph />
-        </Widget>
-      </Grid>
-
-      <Grid item xs={12} md={4}>
-        <Widget title="Website Traffic" loading={loading}>
-          <BarGraph />
-        </Widget>
-      </Grid>
-
-
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={12}>
         <Widget loading={loading}>
-          <UsersList />
+          <diV className="vertical-line">
+            <CustomizedTables />
+
+          </diV>
         </Widget>
       </Grid>
-
-      <Grid item xs={12} md={6}>
-        <Widget loading={loading}>
-          <CustomizedTables />
-        </Widget>
-      </Grid>
-
-    </Grid>
+    
+    </Grid >
   );
 }

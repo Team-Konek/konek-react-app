@@ -64,7 +64,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function MiniDrawer({ open }) {
 
-  const role = "student";
+  const role = "instructor";
 
   const getMenuItems = (role) => {
     if (role === "admin") {

@@ -1,9 +1,8 @@
 import React from "react";
 import { Button, Container, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import "./style.css";
 import Logo from "../../components/logo/logo";
-
+import "./style.css";
 
 function Home() {
   return (

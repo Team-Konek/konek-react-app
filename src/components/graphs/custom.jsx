@@ -7,6 +7,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Button, Divider } from '@mui/material';
+import VideoCallIcon from '@mui/icons-material/VideoCall';
+import { useTheme } from '@mui/material/styles';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -28,41 +31,58 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(subject, time, day, section, create) {
+  return { subject, time, day, section, create };
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
+  createData('Mathematics', "7:00-8:00 AM", "Monday-Friday", "Apple, Banana"),
+  createData('Science',  "8:00-9:00 AM", "Monday-Friday"),
+  createData('Filipino', "9:00-10:00 AM", "Monday-Friday"),
+  createData('English', "10:30-11:30 AM", "Monday-Friday"),
+  createData('Hekasi', "11:30-12:30 PM", "Monday-Friday"),
 ];
 
 export default function CustomizedTables() {
+  const theme = useTheme();
   return (
-    
+
     <TableContainer component={Paper} >
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-            <StyledTableCell align="right">Calories</StyledTableCell>
-            <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+            <StyledTableCell align="center">Subject</StyledTableCell>
+            <StyledTableCell align="center">Time</StyledTableCell>
+            <StyledTableCell align="center">Day</StyledTableCell>
+            <StyledTableCell align="center">Section</StyledTableCell>
+            <StyledTableCell align="center">Create Meeting</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
+              <StyledTableCell component="th" scope="row" align="center">
+                {row.subject}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
+              <StyledTableCell align="center">{row.time}</StyledTableCell>
+              <StyledTableCell align="center">{row.day}</StyledTableCell>
+              <StyledTableCell align="center">{row.section}</StyledTableCell>
+              <StyledTableCell align="center">{row.create}
+                <Button variant="outlined"
+                  sx={{
+                    fontWeight: "600",
+                    backgroundColor: theme.palette.primary.main,
+                    color: theme.palette.common.white,
+                    '&:hover': {
+                      color: theme.palette.primary.main,
+                      backgroundColor: "#eee"
+                    },
+                  }}
+                >
+                  <VideoCallIcon sx={{ marginRight: "2px" }} />
+                  meeting
+                </Button>
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

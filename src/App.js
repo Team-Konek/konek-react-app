@@ -7,7 +7,8 @@ import Protected from './components/routes/protected';
 import NotFound from './pages/not-found';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theming';
-import Login from './pages/login/login';
+import Login from './pages/login';
+import Room from './pages/room';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/404" element={<NotFound />} />
           <Route path="/" element={<Home />} exact />
           <Route path="*" element={<Navigate to="/404" />} />
+          <Route path="/room" element={<Room />} />
         </Routes>
       </ThemeProvider>
     </Router>

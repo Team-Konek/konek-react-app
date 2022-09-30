@@ -4,6 +4,7 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: 'Poppins', sans-serif;
 }
 
 .home{
@@ -18,7 +19,6 @@ body {
   margin-bottom: 30px;
 }
 
-
 .home .center-box {
   width: 50vw;
   text-align: center;
@@ -28,23 +28,38 @@ body {
 }
 
 .home .title {
-  margin-top: -30px;
+  margin-top: -15px;
   font-weight: 600;
   font-size: 4rem;
 }
 
 .home .btn {
-  padding: 10px 40px;
+  margin: auto;
+  margin-top: 30px;
+  padding: 10px 0;
+  width: 15vh;
   border-radius: 50px;
+  border-color: #fff;
   font-weight: bold;
   color: #fff;
-  border-color: #fff;
+  
 }
 
+.home .btn::before {
+  margin: auto;
+  margin-top: 30px;
+  display: inline-block;
+  padding: 10px 40px;
+  border-radius: 10px;
+  border-color: #fff;
+  font-weight: bold;
+  color: #fff;
+}
 .home .btn:hover {
   color: #fff;
   background-color: #29712a;
   border-color: #fff;
+  transition: ease-out 0.3s;
   opacity: 0.8;
 }
 

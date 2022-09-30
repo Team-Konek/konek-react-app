@@ -5,6 +5,7 @@
 .logo {
     color: #29712a;
     font-size: 30px;
+    margin-left: 60px;
 }
 .logo > *{
     font-family: myFont;

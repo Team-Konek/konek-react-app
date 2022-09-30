@@ -12,15 +12,8 @@ function Home() {
         <a href="#">
           <Logo lg />
         </a>
-
-        {/* <div className="header-btn">
-            <ul>
-                <Link className="login-btn" to="/lobby">SignUp/Login</Link>
-            </ul>
-          </div> */}
-
       </div>
-
+      
       <div className="center-box">
         <Typography variant="h1" component="h1" className="color-swap">
           Online Learning
@@ -29,6 +22,7 @@ function Home() {
         <Typography variant="title" component="h3" className="title">
           Made More Fun!
         </Typography>
+        
 
         <Typography variant="subtitle1" component="p" className="subtitle" mt={5}>
           KONEK lets teachers and students conduct a video conferencing session
@@ -36,8 +30,9 @@ function Home() {
           learned with regards to their lesson in a form of
           enjoyable and interactive games
         </Typography>
-        <Link to="/dashboard">
-          <Button variant="outlined" size="large" className="btn">KONEK</Button>
+
+        <Link to="/login">
+          <Button  variant="outlined" className="btn">KONEK</Button>
         </Link>
       </div>
     </div>

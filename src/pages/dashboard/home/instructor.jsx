@@ -1,8 +1,7 @@
-import { Box, Divider, Grid, TextField } from '@mui/material';
-import React from 'react';
-import ClassroomCard from '../../../components/cards/classroom-card';
-import CustomizedTables from '../../../components/graphs/custom';
-import Widget from '../../../components/widget/widget';
+import { Grid } from "@mui/material";
+import React from "react";
+import CustomizedTables from "../../../components/graphs/custom";
+import Widget from "../../../components/widget/widget";
 
 export default function InstructorDashboard() {
   const [loading, setLoading] = React.useState(true);
@@ -20,11 +19,9 @@ export default function InstructorDashboard() {
         <Widget loading={loading}>
           <diV className="vertical-line">
             <CustomizedTables />
-
           </diV>
         </Widget>
       </Grid>
-    
-    </Grid >
+    </Grid>
   );
 }

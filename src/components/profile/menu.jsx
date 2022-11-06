@@ -1,36 +1,37 @@
-import { Menu, MenuItem, Typography } from '@mui/material';
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Menu, MenuItem, Typography } from "@mui/material";
+import React from "react";
+import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 export default function UserMenu(props) {
   // KUNG MADAMI ANG PROPS
   const { anchor, onClose } = props;
 
-  const settings = ['Profile', 'Account', 'Logout'];
+  const settings = ["Profile", "Account", "Logout"];
 
   const navigate = useNavigate();
 
   const handleClick = (evt) => () => {
-    if (evt === 'Logout') {
+    if (evt === "Logout") {
       navigate("/");
       return;
     }
-    onClose()
+    onClose();
   };
 
   return (
     <Menu
-      sx={{ mt: '45px' }}
+      sx={{ mt: "45px" }}
       id="menu-appbar"
       anchorEl={anchor}
       anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       keepMounted
       transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
+        vertical: "top",
+        horizontal: "right",
       }}
       open={Boolean(anchor)}
       onClose={onClose}
@@ -43,3 +44,13 @@ export default function UserMenu(props) {
     </Menu>
   );
 }
+
+UserMenu.defaultProps = {
+  anchor: null,
+  onClose: () => {},
+};
+// Typechecking props of the MDAlert
+UserMenu.propTypes = {
+  anchor: PropTypes.element,
+  onClose: PropTypes.func,
+};

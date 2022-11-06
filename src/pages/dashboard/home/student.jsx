@@ -1,7 +1,8 @@
-import { Grid } from '@mui/material';
-import React from 'react';
-import ClassroomCard from '../../../components/cards/classroom-card';
-import Widget from '../../../components/widget/widget';
+import { Grid } from "@mui/material";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import ClassroomCard from "../../../components/cards/classroom-card";
+import Widget from "../../../components/widget/widget";
 
 export default function StudentDashboard() {
   const [loading, setLoading] = React.useState(true);
@@ -11,21 +12,44 @@ export default function StudentDashboard() {
     }, 2000);
   }, []);
 
-  return (
+  const classrooms = [
+    {
+      id: "1",
+      title: "Kalbo",
+      image:
+        "https://drive.google.com/uc?export=view&id=1omB8yTn99Y3mIuwREHZHjbHUAqPF9CaB",
+    },
+    {
+      id: "2",
+      title: "Panot",
+      image:
+        "https://drive.google.com/uc?export=view&id=1omB8yTn99Y3mIuwREHZHjbHUAqPF9CaB",
+    },
+    {
+      id: "3",
+      title: "Jude",
+      image:
+        "https://drive.google.com/uc?export=view&id=1omB8yTn99Y3mIuwREHZHjbHUAqPF9CaB",
+    },
+  ];
 
+  const navigate = useNavigate();
+
+  return (
     <Grid container spacing={2}>
       <Grid item xs={12} md={12}>
         <Widget title="Live Porno" loading={loading} padded>
           <div className="vertical-scroll">
             <div className="card-list">
-              {Array(1).fill(null).map(() => (
+              {classrooms.map((classroom) => (
                 <ClassroomCard
-                  image="https://drive.google.com/uc?export=view&id=1omB8yTn99Y3mIuwREHZHjbHUAqPF9CaB"
-                  title="Monkey"
+                  key={classroom.id}
+                  image={classroom.image}
+                  title={classroom.title}
                   description="You will learn how to communicate with monkey"
-                  onJoin={() => {
-                  }}
-                />))}
+                  onJoin={() => navigate(`/room/${classroom.id}`)}
+                />
+              ))}
             </div>
           </div>
         </Widget>

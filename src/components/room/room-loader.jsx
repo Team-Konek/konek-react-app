@@ -1,8 +1,9 @@
 import React from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
+import { Typography } from "@mui/material";
 
-export default function Loader() {
+export default function RoomLoader() {
   return (
     <Box
       sx={{
@@ -14,11 +15,14 @@ export default function Loader() {
         position: "absolute",
         top: 0,
         left: 0,
-        backgroundColor: "rgba(255,255,255,0.9)",
+        backgroundColor: "#202124",
         zIndex: 999,
       }}
     >
       <CircularProgress />
+      <Typography p={1} color="#fff" fontSize="40px" fontWeight={250}>
+        Joining...
+      </Typography>
     </Box>
   );
 }

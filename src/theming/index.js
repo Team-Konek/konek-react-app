@@ -1,26 +1,25 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
     primary: {
       main: "#532267",
-      light:"#9c27b0",
-      dark: "#411952"
-      // dark: "#411952"
+      light: "#9c27b0",
+      dark: "#411952",
     },
     secondary: {
-      main: "#fff", 
+      main: "#fff",
     },
     white: {
-      main: "#fff", 
+      main: "#fff",
     },
     gray: {
-      main: "#eee"
-    }
+      main: "#eee",
+      dark: "#202124",
+    },
   },
-  typography:{
-    fontFamily: ["Poppins","Cursive"].join(",")
-  }
+  typography: {
+    fontFamily: ["Poppins", "Cursive"].join(","),
+  },
 });
-
 export default theme;

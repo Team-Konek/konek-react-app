@@ -8,20 +8,23 @@ export default function LoginTextFields() {
       component="form"
       sx={{
         "& > :not(style)": { m: 1, width: 400 },
+        borderColor: "#fff",
       }}
       noValidate
       autoComplete="off"
     >
       <TextField
-        id="outlined-basic"
+        id="txt-user"
         label="Username"
-        variant="outlined"
-      />
+        name="uname"
+        InputLabelProps={{className: 'txt_user'}}
+        />
       <TextField 
-        id="outlined-basic" 
+        id="txt-pass" 
         label="Password" 
-        variant="outlined" 
         type="password"
+        name="pass"
+        InputLabelProps={{className: 'txt_pass'}}
       />
     </Box>
   );

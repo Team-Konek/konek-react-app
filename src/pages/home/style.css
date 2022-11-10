@@ -11,56 +11,42 @@ body {
   padding: 30px 1px;
 }
 
-.home .subtitle {
-  font-size: 1.2rem;
-  line-height: 1.8rem;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
 .home .center-box {
   width: 50vw;
   text-align: center;
   margin: auto;
-  margin-top: 22vh;
+  margin-top: 25vh;
   color: #fff;
 }
 
+.home .subtitle {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 .home .title {
-  margin-top: -15px;
+  margin-top: -2vh;
   font-weight: 600;
   font-size: 4rem;
 }
 
-.home .btn {
-  margin: auto;
-  margin-top: 30px;
-  padding: 10px 0;
-  width: 15vh;
-  border-radius: 50px;
-  border-color: #fff;
-  font-weight: bold;
+.center-box .btn {
+  font-size: large;
   color: #fff;
-  
+  position: inherit;
+  padding: 5px 25px;
+  border: solid 1px #fff;
+  border-radius: 40px;
+  border-color: #fff;
+  margin-left: -40px;
 }
 
-.home .btn::before {
-  margin: auto;
-  margin-top: 30px;
-  display: inline-block;
-  padding: 10px 40px;
-  border-radius: 10px;
-  border-color: #fff;
-  font-weight: bold;
-  color: #fff;
-}
 .home .btn:hover {
-  color: #fff;
-  background-color: #29712a;
-  border-color: #fff;
+  background-color: rgba(8, 142, 8, 0.5);
+  border: solid 1px #fff;
   transition: ease-out 0.3s;
-  opacity: 0.8;
 }
 
 

@@ -1,9 +1,8 @@
 import React from "react";
-import { Button, Container, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./style.css";
 import Logo from "../../components/logo/logo";
-
 
 function Home() {
   return (
@@ -22,7 +21,6 @@ function Home() {
         <Typography variant="title" component="h3" className="title">
           Made More Fun!
         </Typography>
-        
 
         <Typography variant="subtitle1" component="p" className="subtitle" mt={5}>
           KONEK lets teachers and students conduct a video conferencing session
@@ -32,11 +30,10 @@ function Home() {
         </Typography>
 
         <Link to="/login">
-          <Button  variant="outlined" className="btn">KONEK</Button>
+          <Button variant="outlined" className="btn">KONEK</Button>
         </Link>
       </div>
     </div>
-
   );
 }
 

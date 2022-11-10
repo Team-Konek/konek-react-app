@@ -1,4 +1,4 @@
-<script>
+
     let form = document.getElementById('join-form')
 
     form.addEventListener('submit', (e) => {
@@ -6,4 +6,3 @@
         let inviteCode = e.target.invite_link.value
         window.location = `index.html?room=${inviteCode}` 
     })
-</script>

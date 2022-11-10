@@ -8,149 +8,100 @@
 }
 
 .landing-header {
-    margin-top: -38%;
-    margin-left: -50%;
-    margin-bottom: 40%;
+    margin-top: 30px;
+    text-align: left;
+    z-index: 1;
 }
 
 .login-form {
-    margin-top: 30px;
     display: block;
     position: absolute;
-    color: black;
-    top: 40%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-}
-
-.login-form::before {
-    content: "";
-    position: absolute;
-    padding: 34vh 45vh;
-    border-bottom: 937px solid #512962;
-    border-right: 250px solid transparent;
-    background-color: transparent;
-    top: -170%;
-    left: -60%;
-    opacity: 0.8;
-    z-index: -100;
-}
-
-.form-header h2 {
-    margin-top: 30vh;
-    position: absolute;
+    background: rgba(83, 24, 103, 0.5);
+    margin: auto;
+    text-align: center;
+    width: 55%;
+    height: 100%;
+    clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
 }
 
 #form-header h2{
-    margin-left: 11.9vh;
+    margin-top: 15vh;
+    margin-right: 12vh;
+    margin-bottom: 10px;
     color: #fff;
     font-size: 50px;
     font-weight: 1000;
-    margin-top: 0;
-    margin-bottom: 10px;
 }
 
-label {
-    font-size: 15px;
+.textfields {
+    margin-left: 24vh;
+    width: 500px;
     color: #fff;
-    text-align: left;
 }
 
-#txt-user, #txt-pass{
-    margin-bottom: 20px;
-    margin-top: 5px;
-    display: block;
-    font-size: 15px;
-    color: #2f2f2f;
-    padding: 10px 10px;
-    width: 35vh;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: inset 0 0 0 rgb(13, 96, 13);
-    transition: ease-out 0.3s;
+.txt-user {
+    color: #fff;
 }
 
-#join-form p {
-    margin-top: 60px;
-    text-align: center;
+.txt_user {
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+.txt_pass {
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+.signup-text {
+    margin-right: 12vh;
+    margin-top: 10vh;
     font-size: small;
     color: #fff;
 }
-#join-form .signup-link:hover {
+
+.signup-text .signup-link:hover {
     color: rgb(22, 201, 22);
     text-decoration: underline;
     transition: ease-out 0.3s;
 }
 
-
-#join-form #btn-submit {
+.btn-submit {
+    margin-left: -12vh;
+    margin-top: 20px;
+    padding: 8px 35px;
     border: solid 1px #fff;
-    padding: 10px 40px;
-    margin-left: 11.5vh;
     border-radius: 25px;
     font-size: 18px;
     background-color: #2f2f2f;
     color: #fff;
-    opacity: 100;
     cursor: pointer;
 }
 
-#join-form #btn-submit:hover {
+.btn-submit:hover {
     background-color: green;
+    border: solid 1px #fff;
     color: #fff;
     transition: ease-out 0.3s;
 }
 
 #apis {
     display: block;
-    position: absolute;
-    padding: 50px;
-    text-align: center;
-    justify-content: space-between;
-    width: 70%;
+    margin-left: 40vh;
+    margin-top: 5vh;
+    height: 100%;
+    width: 20vh;
 }
 
-#join-form #api-google-btn {
-    padding: 10px;
+#form-wrapper #api-google-btn {
+    padding: 10px 18px;
     background-color: red;
     color:#fff;
 }
 
-#join-form #api-fb-btn {
+#form-wrapper #api-fb-btn {
+    margin-top: 1vh;
     padding: 10px;
     background-color:royalblue;
     color:#fff;
-}
-
-.textfields {
-    display: flex;
-    text-align: center;
-    margin: auto;
-    padding-top: 50px;
-    padding-bottom: 10px;
-}
-
-.title {
-    text-align: center;
-    padding-top: 80px;
-}
-.login-btn {
-    text-align: center;
-    margin: auto;
-    padding: 3px 0;
-    width: 25%;
-    border-radius: 50px;
-    background-color: #2f2f2f;
-    cursor: pointer;
-}
-
-.login-btn > Button {
-    color: #fff;
-    font-weight: 600;
-}
-
-.login-btn:hover {
-    background-color: green;
-    color: #fff;
-    transition: ease-out 0.3s;
-}
+} 

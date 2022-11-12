@@ -38,7 +38,8 @@ export default function RoomActions({
         alignItems="center"
         sx={{
           height: "100%",
-          backgroundColor: "rgba(0,0,0,0.7)",
+          backgroundImage: "linear-gradient(transparent, black 90%)",
+          opacity: 0.7,
           borderRadius: "5px",
           marginTop: 2,
         }}
@@ -47,7 +48,9 @@ export default function RoomActions({
           <IconButton
             onClick={handleMuteToggle}
             size="large"
-            sx={{ color: theme.palette.white.main }}
+            sx={{
+              color: theme.palette.white.main,
+            }}
           >
             {audioEnabled ? <MicIcon /> : <MicOffIcon />}
           </IconButton>
@@ -69,9 +72,15 @@ export default function RoomActions({
           <IconButton
             onClick={handleEnd}
             size="small"
-            sx={{ color: theme.palette.white.main, backgroundColor: "red" }}
+            sx={{ color: theme.palette.white.main }}
           >
-            <CallEndIcon />
+            <CallEndIcon
+              sx={{
+                backgroundColor: "red",
+                borderRadius: "50px",
+                padding: 1,
+              }}
+            />
           </IconButton>
         </Box>
       </Box>

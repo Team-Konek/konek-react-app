@@ -1,4 +1,6 @@
 import {
+  Avatar,
+  AvatarGroup,
   Box,
   Card,
   CardContent,
@@ -7,12 +9,12 @@ import {
   IconButton,
   InputBase,
   Paper,
+  Snackbar,
 } from "@mui/material";
 import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import SendIcon from "@mui/icons-material/Send";
 import { useTheme } from "@mui/material/styles";
-// import RoomParticipant from "./room-participant";
 import RoomLoader from "./room-loader";
 import RoomActions from "./room-actions";
 
@@ -31,20 +33,20 @@ export default function Room() {
     setTimeout(() => {
       setLoading(false);
     }, 1000);
-    // setStudents([
-    //   {
-    //     id: "1",
-    //     name: "Jude Batista",
-    //     image:
-    //       "https://drive.google.com/uc?export=view&id=1omB8yTn99Y3mIuwREHZHjbHUAqPF9CaB",
-    //   },
-    //   {
-    //     id: "2",
-    //     name: "Matthew Gay",
-    //     image:
-    //       "https://drive.google.com/uc?export=view&id=1omB8yTn99Y3mIuwREHZHjbHUAqPF9CaB",
-    //   },
-    // ]);
+    setStudents([
+      {
+        id: "1",
+        name: "Jude Batista",
+        image:
+          "https://drive.google.com/uc?export=view&id=1omB8yTn99Y3mIuwREHZHjbHUAqPF9CaB",
+      },
+      {
+        id: "2",
+        name: "Matthew Gay",
+        image:
+          "https://drive.google.com/uc?export=view&id=1omB8yTn99Y3mIuwREHZHjbHUAqPF9CaB",
+      },
+    ]);
   }, []);
 
   const join = () => {
@@ -60,7 +62,39 @@ export default function Room() {
     setId(id + 1);
   };
 
+  const [hover, setHover] = React.useState(false);
   const theme = useTheme();
+
+  const [message, setMessage] = React.useState("");
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setMessage("Jude Kalbo Joined");
+    }, 3000);
+  }, []);
+
+  React.useEffect(() => {
+    if (message) {
+      setTimeout(() => {
+        setMessage("");
+      }, 5000);
+    }
+  }, [message]);
+
+  const handleClose = () => {
+    setMessage("");
+  };
+
+  const action = (
+    <IconButton
+      size="small"
+      aria-label="close"
+      color="inherit"
+      onClick={handleClose}
+    >
+      <CloseIcon fontSize="small" />
+    </IconButton>
+  );
 
   return (
     <Paper
@@ -116,20 +150,58 @@ export default function Room() {
                   }}
                 >
                   <Box
+                    onMouseEnter={() => setHover(true)}
+                    onMouseLeave={() => setHover(false)}
                     sx={{
-                      position: "absolute",
-                      bottom: 0,
-                      left: 0,
-                      width: "100%",
+                      opacity: hover ? 1 : 0,
+                      transition: "ease 0.3s",
                     }}
                   >
-                    <RoomActions
-                      onEnd={join}
-                      audioEnabled={audioEnabled}
-                      onAudioToggle={(e) => setAudioEnabled(e)}
-                      videoEnabled={videoEnabled}
-                      onVideoToggle={(e) => setVideoEnabled(e)}
-                    />
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        top: 0,
+                        right: 0,
+                      }}
+                    >
+                      <AvatarGroup max={4}>
+                        {students.map((student) => (
+                          <Avatar alt={student.name} src={student.image} />
+                        ))}
+                        <Avatar
+                          alt="Travis Howard"
+                          src="https://drive.google.com/uc?export=view&id=1omB8yTn99Y3mIuwREHZHjbHUAqPF9CaB"
+                        />
+                        <Avatar
+                          alt="Cindy Baker"
+                          src="https://drive.google.com/uc?export=view&id=1omB8yTn99Y3mIuwREHZHjbHUAqPF9CaB"
+                        />
+                        <Avatar
+                          alt="Agnes Walker"
+                          src="https://drive.google.com/uc?export=view&id=1omB8yTn99Y3mIuwREHZHjbHUAqPF9CaB"
+                        />
+                        <Avatar
+                          alt="Trevor Henderson"
+                          src="https://drive.google.com/uc?export=view&id=1omB8yTn99Y3mIuwREHZHjbHUAqPF9CaB"
+                        />
+                      </AvatarGroup>
+                    </Box>
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: 0,
+                        width: "100%",
+                      }}
+                    >
+                      <RoomActions
+                        onEnd={join}
+                        audioEnabled={audioEnabled}
+                        onAudioToggle={(e) => setAudioEnabled(e)}
+                        videoEnabled={videoEnabled}
+                        onVideoToggle={(e) => setVideoEnabled(e)}
+                      />
+                    </Box>
                   </Box>
                 </Box>
               </Box>
@@ -192,6 +264,17 @@ export default function Room() {
                           <SendIcon />
                         </IconButton>
                       </Box>
+                      <Snackbar
+                        anchorOrigin={{
+                          vertical: "bottom",
+                          horizontal: "left",
+                        }}
+                        open={!!message}
+                        autoHideDuration={6000}
+                        onClose={handleClose}
+                        message={message}
+                        action={action}
+                      />
                     </Box>
                   </CardContent>
                 </Card>

@@ -1,20 +1,67 @@
-import React from 'react';
-import AdminDashboard from './admin';
+import { IconButton, Snackbar } from "@mui/material";
+import React from "react";
+import CloseIcon from "@mui/icons-material/Close";
+import AdminDashboard from "./admin";
+import InstructorDashboard from "./instructor";
+import StudentDashboard from "./student";
 import "./index.css";
-import InstructorDashboard from './instructor';
-import StudentDashboard from './student';
 
 export default function Home() {
-  const role = "student";
+  const [message, setMessage] = React.useState("");
 
-  if (role === "admin") {
-    return <AdminDashboard />;
+  React.useEffect(() => {
+    setTimeout(() => {
+      setMessage("Jude Kalbo");
+    }, 3000);
+  }, []);
 
-  } else if (role === "student") {
-    return <StudentDashboard />;
+  React.useEffect(() => {
+    if (message) {
+      setTimeout(() => {
+        setMessage("");
+      }, 5000);
+    }
+  }, [message]);
 
-  } else if (role === "instructor") {
-    return <InstructorDashboard />;
-  } else
+  const handleClose = () => {
+    setMessage("");
+  };
+
+  const renderDashboard = (role) => {
+    if (role === "admin") return <AdminDashboard />;
+
+    if (role === "student") return <StudentDashboard />;
+
+    if (role === "instructor") return <InstructorDashboard />;
+
     throw new Error("Invalid Role");
+  };
+
+  const action = (
+    <IconButton
+      size="small"
+      aria-label="close"
+      color="inherit"
+      onClick={handleClose}
+    >
+      <CloseIcon fontSize="small" />
+    </IconButton>
+  );
+
+  return (
+    <div className="dashboard-home">
+      {/* <Alert severity="warning" sx={{ marginBottom: 3 }}>
+        Service Maintenance!!!
+      </Alert> */}
+      {renderDashboard("student")}
+      <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        open={!!message}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message={message}
+        action={action}
+      />
+    </div>
+  );
 }

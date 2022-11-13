@@ -17,6 +17,17 @@ function Home() {
         <Typography variant="h1" component="h1" className="color-swap">
           Online Learning
         </Typography>
+      <Container maxWidth="xl"></Container>
+      <div className="header">
+          <a href="#">
+            <Logo />
+          </a>
+          <div className="header-btn">
+            <ul>
+                <Link className="login-btn" to="/login">SignUp/Login</Link>
+            </ul>
+          </div>
+      </div>
 
         <Typography variant="title" component="h3" className="title">
           Made More Fun!

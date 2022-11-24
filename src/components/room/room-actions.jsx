@@ -7,6 +7,8 @@ import { Grid, IconButton } from "@mui/material";
 import PropTypes from "prop-types";
 import MicOffIcon from "@mui/icons-material/MicOff";
 import VideocamOffOutlinedIcon from "@mui/icons-material/VideocamOffOutlined";
+import MessageIcon from "@mui/icons-material/Message";
+import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import { useTheme } from "@mui/material/styles";
 
 export default function RoomActions({
@@ -15,6 +17,10 @@ export default function RoomActions({
   onEnd,
   videoEnabled,
   onVideoToggle,
+  messageEnabled,
+  onMessageToggle,
+  // open,
+  // onClose,
 }) {
   const theme = useTheme();
 
@@ -28,6 +34,10 @@ export default function RoomActions({
 
   const handleVideo = () => {
     onVideoToggle?.(!videoEnabled);
+  };
+
+  const handleMessage = () => {
+    onMessageToggle?.(!messageEnabled);
   };
 
   return (
@@ -83,6 +93,15 @@ export default function RoomActions({
             />
           </IconButton>
         </Box>
+        <Box sx={{ position: "absolute", right: 10 }}>
+          <IconButton
+            onClick={handleMessage}
+            size="large"
+            sx={{ color: theme.palette.white.main }}
+          >
+            {messageEnabled ? <MessageIcon /> : <ChatBubbleIcon />}
+          </IconButton>
+        </Box>
       </Box>
     </Grid>
   );
@@ -91,15 +110,23 @@ export default function RoomActions({
 RoomActions.defaultProps = {
   audioEnabled: false,
   videoEnabled: false,
+  messageEnabled: false,
   onAudioToggle: () => {},
   onEnd: () => {},
   onVideoToggle: () => {},
+  onMessageToggle: () => {},
+  // open: false,
+  // onClose: () => {},
 };
 // Typechecking props of the MDAlert
 RoomActions.propTypes = {
   audioEnabled: PropTypes.bool,
   videoEnabled: PropTypes.bool,
+  messageEnabled: PropTypes.bool,
   onAudioToggle: PropTypes.func,
   onEnd: PropTypes.func,
   onVideoToggle: PropTypes.func,
+  onMessageToggle: PropTypes.func,
+  // open: false,
+  // onClose: PropTypes.func,
 };

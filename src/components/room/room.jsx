@@ -25,6 +25,8 @@ export default function Room() {
 
   const [videoEnabled, setVideoEnabled] = React.useState(false);
 
+  const [messageEnabled, setMessageEnabled] = React.useState(false);
+
   const [students, setStudents] = React.useState([]);
 
   const [loading, setLoading] = React.useState(true);
@@ -200,6 +202,8 @@ export default function Room() {
                         onAudioToggle={(e) => setAudioEnabled(e)}
                         videoEnabled={videoEnabled}
                         onVideoToggle={(e) => setVideoEnabled(e)}
+                        messageEnabled={messageEnabled}
+                        onMessageToggle={(e) => setMessageEnabled(e)}
                       />
                     </Box>
                   </Box>
@@ -222,64 +226,65 @@ export default function Room() {
                 ))}
               </Grid> */}
             </Grid>
-
-            <Grid item xs={12} md={3}>
-              <Box sx={{ height: "100%", marginLeft: 2 }}>
-                <Card sx={{ height: "100%" }}>
-                  <CardHeader
-                    action={
-                      <IconButton>
-                        <CloseIcon />
-                      </IconButton>
-                    }
-                    title="Valorant 101"
-                  />
-                  <CardContent sx={{ height: "100%", paddingTop: 0 }}>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        height: "88%",
-                      }}
-                    >
-                      <Box
-                        p={2}
-                        sx={{
-                          backgroundColor: "#eee",
-                          flexGrow: 1,
-                          borderRadius: "5px",
-                        }}
-                      >
-                        Messages
-                      </Box>
-                      <Box
-                        mt={2}
-                        sx={{ backgroundColor: "#eee", borderRadius: "50px" }}
-                      >
-                        <InputBase
-                          sx={{ ml: 2, pr: 7.5, flex: 1 }}
-                          placeholder="Send a Message"
-                        />
-                        <IconButton color="primary" sx={{ p: "10px" }}>
-                          <SendIcon />
+            {messageEnabled && (
+              <Grid item xs={12} md={3}>
+                <Box sx={{ height: "100%", marginLeft: 2 }}>
+                  <Card sx={{ height: "100%" }}>
+                    <CardHeader
+                      action={
+                        <IconButton onClick={() => setMessageEnabled(false)}>
+                          <CloseIcon />
                         </IconButton>
-                      </Box>
-                      <Snackbar
-                        anchorOrigin={{
-                          vertical: "bottom",
-                          horizontal: "left",
+                      }
+                      title="Valorant 101"
+                    />
+                    <CardContent sx={{ height: "100%", paddingTop: 0 }}>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          height: "88%",
                         }}
-                        open={!!message}
-                        autoHideDuration={6000}
-                        onClose={handleClose}
-                        message={message}
-                        action={action}
-                      />
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Box>
-            </Grid>
+                      >
+                        <Box
+                          p={2}
+                          sx={{
+                            backgroundColor: "#eee",
+                            flexGrow: 1,
+                            borderRadius: "5px",
+                          }}
+                        >
+                          Messages
+                        </Box>
+                        <Box
+                          mt={2}
+                          sx={{ backgroundColor: "#eee", borderRadius: "50px" }}
+                        >
+                          <InputBase
+                            sx={{ ml: 2, pr: 7.5, flex: 1 }}
+                            placeholder="Send a Message"
+                          />
+                          <IconButton color="primary" sx={{ p: "10px" }}>
+                            <SendIcon />
+                          </IconButton>
+                        </Box>
+                        <Snackbar
+                          anchorOrigin={{
+                            vertical: "bottom",
+                            horizontal: "left",
+                          }}
+                          open={!!message}
+                          autoHideDuration={6000}
+                          onClose={handleClose}
+                          message={message}
+                          action={action}
+                        />
+                      </Box>
+                    </CardContent>
+                  </Card>
+                </Box>
+              </Grid>
+            )}
           </Grid>
         </Box>
       </div>

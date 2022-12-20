@@ -2,17 +2,15 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Drawer from "../../components/drawer/drawer";
 import AppBar from "../../components/appbar/appbar";
-import Classroom from "./classroom";
-import User from "./user";
-import Logs from "./logs";
-import Home from "./home";
 import "./index.css";
-import WebSocketClient from "../../components/web-socket/web-socket";
+// import WebSocketClient from "../../components/web-socket/web-socket";
+import { useUser } from "../../context/user";
+import useAuth from "../../auth";
 
-const SOCKET_URL = "http://localhost:5000";
+// const SOCKET_URL = "http://localhost:5000";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -25,6 +23,9 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 export default function DashBoard() {
   const [open, setOpen] = React.useState(false);
+  const auth = useAuth();
+  const [user] = useUser();
+  const [loading, setLoading] = React.useState(true);
 
   const handleDrawerOpen = (b) => {
     setOpen(b);
@@ -34,10 +35,21 @@ export default function DashBoard() {
     setOpen(false);
   };
 
-  const handleMessage = (msg) => {
-    // eslint-disable-next-line no-alert
-    alert(msg.text);
-  };
+  // const handleMessage = (msg) => {
+  //   alert(msg.text);
+  // };
+
+  React.useEffect(() => {
+    auth.verify().finally(() => setLoading(false));
+  }, []);
+
+  if (loading) {
+    return "loading";
+  }
+
+  if (!user?.id) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <Box
@@ -49,19 +61,13 @@ export default function DashBoard() {
       }}
     >
       <CssBaseline />
-      <WebSocketClient url={SOCKET_URL} onReceive={handleMessage} />
+      {/* <WebSocketClient url={SOCKET_URL} onReceive={handleMessage} /> */}
       <AppBar open={open} onMenuClick={handleDrawerOpen} />
       <Drawer open={open} onDrawerClose={handleDrawerClose} />
       <Box component="main" sx={{ flexGrow: 1, p: 3, width: "80%" }}>
         <DrawerHeader />
         <div>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/classroom" element={<Classroom />} />
-            <Route path="/user" element={<User />} />
-            <Route path="/Logs" element={<Logs />} />
-            <Route path="*" element={<Navigate to="/404" />} />
-          </Routes>
+          <Outlet />
         </div>
       </Box>
     </Box>

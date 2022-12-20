@@ -18,6 +18,21 @@ export default function useAuth() {
         }).then((u) => {
           setUser(u);
         }),
+      verify: () =>
+        new Promise((resolve) => {
+          setTimeout(() => {
+            resolve({
+              id: 1,
+            });
+          }, 1000);
+        })
+          .then((u) => {
+            setUser(u);
+          })
+          .catch(() => {
+            setUser({});
+            sessionStorage.clear();
+          }),
     }),
     [config]
   );

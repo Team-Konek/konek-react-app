@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { Button, Typography } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import Logo from "../../components/logo/logo";
 import "./style.css";
@@ -17,6 +18,7 @@ function Home() {
         <Typography variant="h1" component="h1" className="color-swap">
           Online Learning
         </Typography>
+        <Container maxWidth="xl" />
 
         <Typography variant="title" component="h3" className="title">
           Made More Fun!
@@ -33,8 +35,13 @@ function Home() {
           have have learned with regards to their lesson in a form of enjoyable
           interactive games
         </Typography>
-        <Link to="/dashboard">
+        {/* <Link to="/dashboard">
           <Button variant="outlined" size="large" className="btn">
+            KONEK
+          </Button> */}
+
+        <Link to="/login">
+          <Button variant="outlined" className="btn">
             KONEK
           </Button>
         </Link>

@@ -5,6 +5,7 @@ import AdminDashboard from "./admin";
 import InstructorDashboard from "./instructor";
 import StudentDashboard from "./student";
 import "./index.css";
+import CoordinatorDashboard from "./cordinator";
 
 export default function Home() {
   const [message, setMessage] = React.useState("");
@@ -34,6 +35,8 @@ export default function Home() {
 
     if (role === "instructor") return <InstructorDashboard />;
 
+    if (role === "coordinator") return <CoordinatorDashboard />;
+
     throw new Error("Invalid Role");
   };
 
@@ -53,7 +56,7 @@ export default function Home() {
       {/* <Alert severity="warning" sx={{ marginBottom: 3 }}>
         Service Maintenance!!!
       </Alert> */}
-      {renderDashboard("student")}
+      {renderDashboard("coordinator")}
       <Snackbar
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
         open={!!message}

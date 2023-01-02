@@ -20,6 +20,9 @@ import { UserProvider } from "./context/user";
 import Classroom from "./pages/dashboard/classroom";
 import User from "./pages/dashboard/user";
 import Logs from "./pages/dashboard/logs";
+import MyProfile from "./pages/profile";
+import Instructors from "./pages/dashboard/instructor-data";
+import Calendar from "./pages/calendar.jsx";
 
 function App() {
   return (
@@ -37,6 +40,9 @@ function App() {
                 <Route path="/dashboard/classroom" element={<Classroom />} />
                 <Route path="/dashboard/user" element={<User />} />
                 <Route path="/dashboard/Logs" element={<Logs />} />
+                <Route path="/dashboard/profile" element={<MyProfile />} />
+                <Route path="/dashboard/teachers" element={<Instructors />} />
+                <Route path="/dashboard/calendar" element={<Calendar />} />
               </Route>
               <Route path="/login" element={<Login />} />
               <Route path="/room/:id" element={<Room />} />

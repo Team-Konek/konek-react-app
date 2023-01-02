@@ -3,12 +3,14 @@ import { styled } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
 import Divider from "@mui/material/Divider";
 import ClassIcon from "@mui/icons-material/Class";
-import PersonIcon from "@mui/icons-material/Person";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import List from "@mui/material/List";
 import { useNavigate, useLocation } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import PropTypes from "prop-types";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import ContactEmergencyIcon from "@mui/icons-material/ContactEmergency";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import DrawerListItem from "./list-item";
 import "./drawer.css";
 
@@ -62,27 +64,36 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function MiniDrawer({ open }) {
-  const activeRole = "admin";
+  const activeRole = "coordinator";
 
   const getMenuItems = (role) => {
     if (role === "admin") {
       return [
         { text: "Home", icon: HomeIcon, path: "" },
-        { text: "Classroom", icon: ClassIcon, path: "classroom" },
-        { text: "User", icon: PersonIcon, path: "user" },
+        { text: "Profile", icon: AccountBoxIcon, path: "profile" },
+        { text: "User", icon: ContactEmergencyIcon, path: "user" },
         { text: "Logs", icon: ReceiptLongIcon, path: "logs" },
       ];
     }
     if (role === "student") {
       return [
         { text: "Home", icon: HomeIcon, path: "" },
+        { text: "Profile", icon: AccountBoxIcon, path: "profile" },
         { text: "Classroom", icon: ClassIcon, path: "classroom" },
       ];
     }
     if (role === "instructor") {
       return [
         { text: "Home", icon: HomeIcon, path: "" },
+        { text: "Profile", icon: AccountBoxIcon, path: "profile" },
         { text: "Classroom", icon: ClassIcon, path: "classroom" },
+      ];
+    }
+    if (role === "coordinator") {
+      return [
+        { text: "Home", icon: HomeIcon, path: "" },
+        { text: "Teachers", icon: PeopleAltIcon, path: "teachers" },
+        { text: "Calendar", icon: AccountBoxIcon, path: "calendar" },
       ];
     }
     throw new Error("Invalid Role");

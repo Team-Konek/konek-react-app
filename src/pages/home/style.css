@@ -7,8 +7,14 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+
+.home .header{
+  display: inline-block;
+}
+
+
 .home {
-  padding: 50px 100px;
+  padding: 40px 100px;
 }
 
 .home .center-box {

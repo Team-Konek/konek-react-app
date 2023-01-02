@@ -48,20 +48,23 @@ export default function LoginForm() {
             id="txt-user"
             label="Username"
             name="username"
-            inputlabelprops={{ className: "txt_user" }}
+            color="secondary"
+            // inputlabelprops={{ className: "txt_user" }}
             disabled={loading}
             value={formik?.username}
             onChange={formik.handleChange}
             onBlur={formik.handleBLur}
             error={formik.touched.username && Boolean(formik.errors.username)}
             helperText={formik.touched.username && formik.errors.username}
+            sx={{ color: "fff" }}
           />
           <TextField
             id="txt-pass"
             label="Password"
             type="password"
+            color="secondary"
             name="password"
-            inputlabelprops={{ className: "txt_pass" }}
+            // inputlabelprops={{ className: "txt_pass" }}
             disabled={loading}
             value={formik?.password}
             onChange={formik.handleChange}
@@ -72,27 +75,28 @@ export default function LoginForm() {
         </Box>
       </div>
 
+      <div className="button">
+        <Button
+          className="btn-submit"
+          inputlabelprops={{ className: "btn_submit" }}
+          type="submit"
+          color="secondary"
+        >
+          Login
+        </Button>
+      </div>
+
       <div className="signup-text">
         <Typography>
           Dont have an account yet?
-          <Link to="/" className="signup-link">
+          <Link to="/sign-up" className="signup-link">
             {" "}
             Sign up
           </Link>
         </Typography>
       </div>
 
-      <div className="button">
-        <Button
-          className="btn-submit"
-          inputlabelprops={{ className: "btn_submit" }}
-          type="submit"
-        >
-          Login
-        </Button>
-      </div>
-
-      <div id="apis">
+      {/* <div id="apis">
         <Link to="/google">
           <Button id="api-google-btn" type="submit">
             Sign in with google
@@ -103,7 +107,7 @@ export default function LoginForm() {
             Sign in with facebook
           </Button>
         </Link>
-      </div>
+      </div> */}
     </form>
   );
 }

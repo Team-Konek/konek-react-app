@@ -9,8 +9,13 @@
 
 .landing-header {
     margin-top: 30px;
-    text-align: left;
     z-index: 1;
+}
+
+
+.login .landing-header{
+    display: inline-block;
+    margin-right: 500px;
 }
 
 .login-form {

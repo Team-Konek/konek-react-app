@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import { Box, Grid, Skeleton, Typography } from "@mui/material";
 import BarGraph from "../../../components/graphs/bar-graph";
 import LineGraph from "../../../components/graphs/line-graph";
 import UsersList from "../../../components/graphs/user-list";
@@ -16,27 +16,93 @@ export default function AdminDashboard() {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} md={8}>
-        <Widget title="Users" loading={loading}>
-          <LineGraph />
+        <Widget sx={{ minHeight: 400 }}>
+          {loading ? (
+            <>
+              <Box p={3}>
+                <Skeleton width="100px" height="50px">
+                  <Typography>.</Typography>
+                </Skeleton>
+              </Box>
+              <Box mx={3} mt={-5}>
+                <Skeleton width="100%" height="300px">
+                  <Typography>.</Typography>
+                </Skeleton>
+              </Box>
+              <Box mx={3} mt={-6}>
+                <Skeleton width="100%" height="30px">
+                  <Typography>.</Typography>
+                </Skeleton>
+              </Box>
+            </>
+          ) : (
+            <Widget title="Users">
+              <LineGraph />
+            </Widget>
+          )}
         </Widget>
       </Grid>
 
       <Grid item xs={12} md={4}>
-        <Widget title="Website Traffic" loading={loading}>
-          <BarGraph />
+        <Widget sx={{ minHeight: 400 }}>
+          {loading ? (
+            <>
+              <Box p={3}>
+                <Skeleton width="100px" height="50px">
+                  <Typography>.</Typography>
+                </Skeleton>
+              </Box>
+              <Box mx={3} mt={-5}>
+                <Skeleton width="100%" height="300px">
+                  <Typography>.</Typography>
+                </Skeleton>
+              </Box>
+              <Box mx={3} mt={-6}>
+                <Skeleton width="100%" height="30px">
+                  <Typography>.</Typography>
+                </Skeleton>
+              </Box>
+            </>
+          ) : (
+            <Widget title="Website Traffic">
+              <BarGraph />
+            </Widget>
+          )}
         </Widget>
       </Grid>
       <Grid item xs={12} md={12}>
-        <Widget loading={loading}>
-          <UsersList />
+        <Widget sx={{ minHeight: 400 }}>
+          {loading ? (
+            <Box mx={1}>
+              <Box
+                sx={{
+                  flexDirection: "row",
+                  display: "flex",
+                }}
+              >
+                {Array(7).fill(
+                  <Skeleton
+                    width="200px"
+                    height="50px"
+                    sx={{ marginRight: 2, marginTop: 2 }}
+                  >
+                    <Typography>.</Typography>
+                  </Skeleton>
+                )}
+              </Box>
+              {Array(3).fill(
+                <Skeleton width="100%" height="70px">
+                  <Typography>.</Typography>
+                </Skeleton>
+              )}
+            </Box>
+          ) : (
+            <Widget>
+              <UsersList />
+            </Widget>
+          )}
         </Widget>
       </Grid>
-
-      {/* <Grid item xs={12} md={6}>
-        <Widget loading={loading}>
-          <CustomizedTables />
-        </Widget>
-      </Grid> */}
     </Grid>
   );
 }

@@ -9,7 +9,7 @@ export default function Widget({ title, children, loading, padded }) {
   return (
     <Paper
       elevation={1}
-      sx={{ minHeight: 300, position: "relative", width: "100%" }}
+      sx={{ height: 400, position: "relative", width: "100%" }}
     >
       {/* ONLY IF */}
       {title && (

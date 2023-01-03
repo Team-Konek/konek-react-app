@@ -11,6 +11,7 @@ import PropTypes from "prop-types";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import ContactEmergencyIcon from "@mui/icons-material/ContactEmergency";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import DrawerListItem from "./list-item";
 import "./drawer.css";
 
@@ -64,7 +65,7 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function MiniDrawer({ open }) {
-  const activeRole = "coordinator";
+  const activeRole = "admin";
 
   const getMenuItems = (role) => {
     if (role === "admin") {
@@ -80,6 +81,7 @@ export default function MiniDrawer({ open }) {
         { text: "Home", icon: HomeIcon, path: "" },
         { text: "Profile", icon: AccountBoxIcon, path: "profile" },
         { text: "Classroom", icon: ClassIcon, path: "classroom" },
+        { text: "Calendar", icon: CalendarMonthIcon, path: "calendar" },
       ];
     }
     if (role === "instructor") {
@@ -87,13 +89,14 @@ export default function MiniDrawer({ open }) {
         { text: "Home", icon: HomeIcon, path: "" },
         { text: "Profile", icon: AccountBoxIcon, path: "profile" },
         { text: "Classroom", icon: ClassIcon, path: "classroom" },
+        { text: "Calendar", icon: CalendarMonthIcon, path: "calendar" },
       ];
     }
     if (role === "coordinator") {
       return [
         { text: "Home", icon: HomeIcon, path: "" },
         { text: "Teachers", icon: PeopleAltIcon, path: "teachers" },
-        { text: "Calendar", icon: AccountBoxIcon, path: "calendar" },
+        { text: "Calendar", icon: CalendarMonthIcon, path: "calendar" },
       ];
     }
     throw new Error("Invalid Role");

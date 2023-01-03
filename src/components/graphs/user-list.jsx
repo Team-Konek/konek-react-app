@@ -5,19 +5,6 @@ const columns = [
   { field: "date", headerName: "Date", flex: 1 },
   { field: "id", headerName: "UserID", flex: 1 },
   { field: "description", headerName: "Description", flex: 6 },
-  // { field: "id", headerName: "ID", width: 150 },
-  // { field: "firstName", headerName: "First name", width: 150 },
-  // { field: "lastName", headerName: "Last name", width: 150 },
-  // {
-  //   field: "fullName",
-  //   headerName: "Full name",
-  //   description: "This column has a value getter and is not sortable.",
-  //   sortable: false,
-  //   width: 160,
-  //   valueGetter: (params) =>
-  //     `${params.row.firstName || ""} ${params.row.lastName || ""}`,
-  // },
-  // { field: "age", headerName: "Age", width: 150 },
 ];
 
 const rows = [
@@ -29,7 +16,7 @@ const rows = [
 
 export default function UsersList() {
   return (
-    <div style={{ height: 300, width: "100%" }}>
+    <div style={{ height: 400, width: "100%" }}>
       <DataGrid
         rows={rows}
         columns={columns}

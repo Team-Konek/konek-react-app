@@ -1,5 +1,6 @@
 import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
+import { Box, Skeleton, Typography } from "@mui/material";
 
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
@@ -35,15 +36,48 @@ const rows = [
 ];
 
 export default function DataTable() {
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
   return (
     <div style={{ height: "85vh", width: "100%" }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        pageSize={10}
-        rowsPerPageOptions={[5]}
-        checkboxSelection
-      />
+      {loading ? (
+        <Box mx={1}>
+          <Box
+            sx={{
+              flexDirection: "row",
+              display: "flex",
+            }}
+          >
+            {Array(7).fill(
+              <Skeleton
+                width="200px"
+                height="50px"
+                sx={{ marginRight: 2, marginTop: 2 }}
+              >
+                <Typography>.</Typography>
+              </Skeleton>
+            )}
+          </Box>
+          {Array(8).fill(
+            <Skeleton width="100%" height="70px">
+              <Typography>.</Typography>
+            </Skeleton>
+          )}
+        </Box>
+      ) : (
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          pageSize={10}
+          rowsPerPageOptions={[5]}
+          checkboxSelection
+        />
+      )}
     </div>
   );
 }

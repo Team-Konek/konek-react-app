@@ -6,11 +6,17 @@ function MyProfile() {
   React.useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
   }, []);
   return (
     <Box>
-      <Box sx={{ height: "70vh" }}>
+      <Box
+        border={4}
+        borderLeft={0}
+        borderRight={0}
+        borderColor="primary.main"
+        sx={{ height: "85vh" }}
+      >
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Box sx={{ flexDirection: "row", display: "flex" }}>

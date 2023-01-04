@@ -10,7 +10,7 @@ export default function AdminDashboard() {
   React.useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
   }, []);
 
   return (
@@ -80,7 +80,7 @@ export default function AdminDashboard() {
                   display: "flex",
                 }}
               >
-                {Array(7).fill(
+                {Array(4).fill(
                   <Skeleton
                     width="200px"
                     height="50px"

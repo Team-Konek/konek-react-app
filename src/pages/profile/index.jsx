@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Grid } from "@mui/material";
 import MyProfile from "./profile";
+import Aesthetic from "./aesthetic";
 
 function IndexProfile() {
   return (
@@ -9,6 +10,9 @@ function IndexProfile() {
         <Card>
           <MyProfile />
         </Card>
+      </Grid>
+      <Grid item xs={6}>
+        <Aesthetic />
       </Grid>
     </Grid>
   );

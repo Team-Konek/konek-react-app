@@ -12,6 +12,7 @@ import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import ContactEmergencyIcon from "@mui/icons-material/ContactEmergency";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import DrawerListItem from "./list-item";
 import "./drawer.css";
 
@@ -73,6 +74,7 @@ export default function MiniDrawer({ open }) {
         { text: "Home", icon: HomeIcon, path: "" },
         { text: "Profile", icon: AccountBoxIcon, path: "profile" },
         { text: "User", icon: ContactEmergencyIcon, path: "user" },
+        { text: "Roles", icon: VerifiedUserIcon, path: "roles" },
         { text: "Logs", icon: ReceiptLongIcon, path: "logs" },
       ];
     }

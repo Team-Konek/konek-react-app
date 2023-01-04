@@ -19,7 +19,7 @@ function InputRegistration() {
   React.useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
   }, []);
 
   const formik = useFormik({
@@ -43,7 +43,13 @@ function InputRegistration() {
   return (
     <Box>
       <form id="join-form" autoComplete="off" onSubmit={formik?.handleSubmit}>
-        <Box sx={{ height: "70vh" }}>
+        <Box
+          border={4}
+          borderLeft={0}
+          borderRight={0}
+          borderColor="primary.main"
+          sx={{ height: "85vh" }}
+        >
           {loading ? (
             <Box p={3}>
               <Skeleton width="20vw" height="7vh">
@@ -230,7 +236,7 @@ function InputRegistration() {
                 </Grid>
               </Grid>
             </Box>
-            <Box sx={{ textAlign: "right", marginTop: "190px" }}>
+            <Box sx={{ textAlign: "right", marginTop: "300px" }}>
               {loading ? (
                 <Box
                   sx={{

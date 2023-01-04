@@ -23,6 +23,7 @@ import Logs from "./pages/dashboard/logs";
 import Instructors from "./pages/dashboard/instructor-data";
 import Calendar from "./pages/calendar.jsx";
 import IndexProfile from "./pages/profile";
+import Roles from "./pages/roles";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
                 <Route path="/dashboard/profile" element={<IndexProfile />} />
                 <Route path="/dashboard/teachers" element={<Instructors />} />
                 <Route path="/dashboard/calendar" element={<Calendar />} />
+                <Route path="/dashboard/roles" element={<Roles />} />
               </Route>
               <Route path="/login" element={<Login />} />
               <Route path="/room/:id" element={<Room />} />

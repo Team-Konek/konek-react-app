@@ -12,15 +12,6 @@ const columns = [
     type: "number",
     width: 90,
   },
-  {
-    field: "fullName",
-    headerName: "Full name",
-    description: "This column has a value getter and is not sortable.",
-    sortable: false,
-    width: 160,
-    valueGetter: (params) =>
-      `${params.row.firstName || ""} ${params.row.lastName || ""}`,
-  },
 ];
 
 const rows = [
@@ -44,7 +35,7 @@ export default function DataTable() {
     }, 1000);
   }, []);
   return (
-    <div style={{ height: "85vh", width: "100%" }}>
+    <div style={{ height: 450, width: "100%" }}>
       {loading ? (
         <Box mx={1}>
           <Box
@@ -63,7 +54,7 @@ export default function DataTable() {
               </Skeleton>
             )}
           </Box>
-          {Array(8).fill(
+          {Array(5).fill(
             <Skeleton width="100%" height="70px">
               <Typography>.</Typography>
             </Skeleton>

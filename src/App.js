@@ -10,7 +10,6 @@ import theme from './theming';
 import Login from './pages/login';
 import Room from './pages/room';
 
-
 function App() {
   return (
     <Router>

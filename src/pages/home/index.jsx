@@ -12,41 +12,36 @@ function Home() {
           <Logo lg />
         </a>
       </div>
-      
+
       <div className="center-box">
         <Typography variant="h1" component="h1" className="color-swap">
           Online Learning
         </Typography>
-      <Container maxWidth="xl"></Container>
-      <div className="header">
-          <a href="#">
-            <Logo />
-          </a>
-          <div className="header-btn">
-            <ul>
-                <Link className="login-btn" to="/login">SignUp/Login</Link>
-            </ul>
-          </div>
-      </div>
 
         <Typography variant="title" component="h3" className="title">
           Made More Fun!
         </Typography>
 
-        <Typography variant="subtitle1" component="p" className="subtitle" mt={5}>
+        <Typography
+          variant="subtitle1"
+          component="p"
+          className="subtitle"
+          mt={5}
+        >
           KONEK lets teachers and students conduct a video conferencing session
-          for their lesson discussions and testing the students on what they have
-          learned with regards to their lesson in a form of
-          enjoyable and interactive games
+          for their lesson discussions and testing the students on what they
+          have learned with regards to their lesson in a form of enjoyable and
+          interactive games
         </Typography>
 
         <Link to="/login">
-          <Button variant="outlined" className="btn">KONEK</Button>
+          <Button variant="outlined" className="btn">
+            KONEK
+          </Button>
         </Link>
       </div>
     </div>
   );
 }
-
 
 export default Home;

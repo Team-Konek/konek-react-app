@@ -14,14 +14,14 @@
 }
 
 .login-form {
-    display: block;
-    position: absolute;
     background: rgba(83, 24, 103, 0.5);
-    margin: auto;
-    text-align: center;
     width: 55%;
     height: 100%;
     clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
+    display: block;
+    position: absolute;
+    margin: auto;
+    text-align: center;
 }
 
 #form-header h2{
@@ -30,7 +30,8 @@
     margin-bottom: 10px;
     color: #fff;
     font-size: 50px;
-    font-weight: 1000;
+    font-weight: 900;
+    font-family: 'comic sans ms';
 }
 
 .textfields {
@@ -45,12 +46,10 @@
 
 .txt_user {
     color: #fff !important;
-    border-color: #fff !important;
 }
 
 .txt_pass {
     color: #fff !important;
-    border-color: #fff !important;
 }
 
 .signup-text {
@@ -94,14 +93,14 @@
 }
 
 #form-wrapper #api-google-btn {
-    padding: 10px 18px;
+    margin-left: -12px;
+    padding: 8px 0;
     background-color: red;
     color:#fff;
+    width: 23vh;
 }
 
-#form-wrapper #api-fb-btn {
-    margin-top: 1vh;
-    padding: 10px;
-    background-color:royalblue;
-    color:#fff;
-} 
+#api-google-btn > .G-logo {
+    margin-right: 15px;
+    height: 40px;
+}

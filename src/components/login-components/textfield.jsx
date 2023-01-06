@@ -18,6 +18,7 @@ export default function LoginTextFields() {
         label="Username"
         name="uname"
         InputLabelProps={{className: 'txt_user'}}
+        sx={{ border: "solid 1px #fff" }}
         />
       <TextField 
         id="txt-pass" 
@@ -25,6 +26,7 @@ export default function LoginTextFields() {
         type="password"
         name="pass"
         InputLabelProps={{className: 'txt_pass'}}
+        sx={{ border: "solid 1px #fff" }}
       />
     </Box>
   );

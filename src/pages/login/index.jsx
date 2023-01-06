@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import Logo from "../../components/logo/logo";
 import "./style.css";
@@ -10,44 +10,52 @@ function Login() {
     <div className="login">
       <div className="login-form">
         <div className="landing-header">
-          <a href="/">
+          <Link to="/">
             <Logo lg />
-          </a>
+          </Link>
         </div>
-        <div id="form-header">
-          <h2>KONEK</h2>
-        </div>
-        <div id="form-wrapper">
-          <form id="join-form" autocomplete="off">
+        <Box >
+          <Grid id="form-header">
+            <h2>KONEK</h2>
+          </Grid>
+          <Grid id="form-wrapper">
+            <form id="join-form" autocomplete="off">
+              <div className="textfields">
+                <LoginTextFields />
+              </div>
 
-            <div className="textfields">
-              <LoginTextFields />
-            </div>
+              <div className="signup-text">
+                <Typography>
+                  Don't have an account yet?{" "}
+                  <Link to="/" className="signup-link">
+                    {" "}
+                    Sign up
+                  </Link>
+                </Typography>
+              </div>
 
-            <div className="signup-text">
-              <Typography>Don't have an account yet? <Link to="/" className="signup-link"> Sign up</Link></Typography>
-            </div>
+              <div className="button">
+                <Link to="/dashboard">
+                  <button
+                    className="btn-submit"
+                    InputLabelProps={{ className: "btn_submit" }}
+                  >
+                    Login
+                  </button>
+                </Link>
+              </div>
 
-            <div className="button">
-              <Link to="/dashboard">
-                <button className="btn-submit" InputLabelProps={{className: 'btn_submit'}}>Login</button> 
-              </Link>
-            </div>
-
-            <div id="apis">
-              <Link to="/google">
-                <Button id="api-google-btn" type="submit">
-                  Sign in with google
-                </Button>
-              </Link>
-              <Link to="/facebook">
-                <Button id="api-fb-btn" type="submit">
-                  Sign in with facebook
-                </Button>
-              </Link>
-            </div> 
-          </form>
-        </div>
+              <div id="apis">
+                <Link to="/google">
+                  <Button id="api-google-btn" type="submit">
+                    <img className="G-logo" src="/images/googleLogo.png" />
+                    Sign in with google
+                  </Button>
+                </Link>
+              </div>
+            </form>
+          </Grid>
+        </Box>
       </div>
     </div>
   );

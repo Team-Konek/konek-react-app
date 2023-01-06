@@ -17,7 +17,6 @@ import CloseIcon from '@mui/icons-material/Close';
 
 const menuId = 'primary-search-account-menu';
 
-
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
@@ -112,7 +111,6 @@ export default function MiniAppBar({ open, onMenuClick }) {
                 </IconButton>
 
                 <Logo />
-
 
                 <Search>
                     <SearchIconWrapper>
